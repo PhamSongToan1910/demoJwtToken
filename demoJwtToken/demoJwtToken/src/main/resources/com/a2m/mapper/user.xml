@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.a2m.demoJwtToken.dao.UserDAO">
+	
+	<resultMap id="result" type="com.a2m.demoJwtToken.entity.user">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="password" column="password" />
+	</resultMap>
+	
+	<select id="SelectUserByID" resultMap = "result">
+		Select * from demojwt.user where user.id = #{id}
+	</select>
+
+	<select id="SelectUserByUsername" resultMap="result">
+		Select * from demojwt.user where user.username = #{username}
+	</select>
+	
+</mapper>
